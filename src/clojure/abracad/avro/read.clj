@@ -43,7 +43,7 @@ schema name symbol `rname`."
         [reducef record] (if named?
                            [(fn [m ^Schema$Field f]
                               (assoc! m
-                                (util/field-keyword f)
+                                (util/field-keyword f) ;; TODO: add namespace here
                                 (.read reader nil (.schema f) in)))
                             (transient {})]
                            [(fn [v ^Schema$Field f]
